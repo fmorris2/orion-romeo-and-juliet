@@ -1,7 +1,7 @@
 package org.mission.tasks;
 
 import org.mission.OrionRJ;
-import org.mission.data.enums.QuestItem;
+import org.mission.data.enums.QuestObject;
 import org.mission.data.enums.QuestNPC;
 import org.osbot.rs07.api.model.NPC;
 import viking.api.Timing;
@@ -20,7 +20,7 @@ public class DeliverNote extends Task<OrionRJ> {
 
     @Override
     public boolean validate() {
-        return configs.get(144) == 20 && inventory.contains(QuestItem.MESSAGE.getItemID());
+        return configs.get(144) == 20 && inventory.contains(QuestObject.MESSAGE.getItemID());
     }
 
     @Override
