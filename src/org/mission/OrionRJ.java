@@ -1,5 +1,6 @@
 package org.mission;
 
+import org.mission.tasks.*;
 import viking.framework.goal.GoalList;
 import viking.framework.mission.Mission;
 import viking.framework.script.VikingScript;
@@ -51,6 +52,7 @@ public class OrionRJ extends Mission {
 
     @Override
     public void onMissionStart() {
+        TASK_MANAGER.addTask(new PickCadavaBerry(this), new StartQuest(this), new DeliverNote(this), new TalkToFatherLawrence(this), new TalkToApothecary(this), new DeliverPotion(this), new FinishQuest(this));
     }
 
     @Override
