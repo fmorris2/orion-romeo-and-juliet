@@ -24,15 +24,18 @@ public class DeliverPotion extends Task<OrionRJ> {
 
     @Override
     public void execute() {
-        juliet = npcs.closest(QuestNPC.JULIET.getNPCArea(), QuestNPC.JULIET.getNPCName());
-        if (juliet != null) {
+        juliet = npcs.closest(QuestNPC.JULIET.getNPCArea().setPlane(1), QuestNPC.JULIET.getNPCName());
+        if (juliet != null || dialogues.inDialogue()) {
             iFact.dialogue("Talk-to", QuestNPC.JULIET.getNPCName(), 20).execute();
         } else {
-            if (walkUtils.walkToArea(QuestNPC.JULIET.getNPCArea(), () -> {
-                juliet = npcs.closest(QuestNPC.JULIET.getNPCArea(), QuestNPC.JULIET.getNPCName());
-                return juliet != null && juliet.isVisible();
+            if (configs.get(1021) == 192)
+                return;
+
+            if (walkUtils.walkToArea(QuestNPC.JULIET.getNPCArea().setPlane(1), () -> {
+                juliet = npcs.closest(QuestNPC.JULIET.getNPCArea().setPlane(1), QuestNPC.JULIET.getNPCName());
+                return juliet != null && juliet.isVisible() && QuestNPC.JULIET.getNPCArea().setPlane(1).contains(myPlayer());
             })) {
-                Timing.waitCondition(() -> npcs.closest(QuestNPC.JULIET.getNPCArea(), QuestNPC.JULIET.getNPCName()) != null, 150, random(2000, 2500));
+                Timing.waitCondition(() -> npcs.closest(QuestNPC.JULIET.getNPCArea().setPlane(1), QuestNPC.JULIET.getNPCName()) != null, 150, random(2000, 2500));
             }
         }
     }

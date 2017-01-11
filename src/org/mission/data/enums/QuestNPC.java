@@ -1,35 +1,36 @@
 package org.mission.data.enums;
 
 import org.osbot.rs07.api.map.Area;
+import org.osbot.rs07.api.map.Position;
 
 /**
  * Created by Sphiinx on 1/10/2017.
  */
 public enum QuestNPC {
 
-    JULIET("Juliet", new Area(new int[][]{
-            {3147, 3430, 1},
-            {3166, 3429, 1},
-            {3165, 3424, 1},
-            {3149, 3424, 1}
+    JULIET("Juliet", new Area(new Position[]{
+            new Position(3154, 3427, 1),
+            new Position(3162, 3427, 1),
+            new Position(3162, 3424, 1),
+            new Position(3154, 3424, 1)
     })),
-    ROMEO("Romeo", new Area(new int[][]{
-            {3204, 3438},
-            {3224, 3437},
-            {3223, 3419},
-            {3205, 3420}
+    ROMEO("Romeo", new Area(new Position[]{
+            new Position(3199, 3440, 0),
+            new Position(3223, 3440, 0),
+            new Position(3224, 3409, 0),
+            new Position(3200, 3409, 0)
     })),
-    FATHER_LAWRENCE("Father Lawrence", new Area(new int[][]{
-            {3250, 3489},
-            {3261, 3489},
-            {3261, 3469},
-            {3251, 3469}
+    FATHER_LAWRENCE("Father Lawrence", new Area(new Position[]{
+            new Position(3250, 3489, 0),
+            new Position(3261, 3489, 0),
+            new Position(3261, 3469, 0),
+            new Position(3251, 3469, 0)
     })),
-    APOTHECARY("Apothecary", new Area(new int[][]{
-            {3191, 3408},
-            {3199, 3408},
-            {3200, 3400},
-            {3191, 3400}
+    APOTHECARY("Apothecary", new Area(new Position[]{
+            new Position(3191, 3408, 0),
+            new Position(3199, 3408, 0),
+            new Position(3200, 3400, 0),
+            new Position(3191, 3400, 0)
     }));
 
     private final String NPC_NAME;

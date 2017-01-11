@@ -7,8 +7,6 @@ import org.osbot.rs07.api.model.NPC;
 import viking.api.Timing;
 import viking.framework.task.Task;
 
-import java.util.Arrays;
-
 /**
  * Created by Sphiinx on 1/10/2017.
  */
@@ -27,10 +25,9 @@ public class DeliverNote extends Task<OrionRJ> {
 
     @Override
     public void execute() {
-        script.log(this, false, Arrays.toString(QuestNPC.values()));
         romeo = npcs.closest(QuestNPC.ROMEO.getNPCArea(), QuestNPC.ROMEO.getNPCName());
         if (romeo != null) {
-            iFact.dialogue("Talk-to", QuestNPC.ROMEO.getNPCName(), 20).execute();
+            iFact.dialogue("Talk-to", QuestNPC.ROMEO.getNPCName(), 20, 4).execute();
         } else {
             if (walkUtils.walkToArea(QuestNPC.ROMEO.getNPCArea(), () -> {
                 romeo = npcs.closest(QuestNPC.ROMEO.getNPCArea(), QuestNPC.ROMEO.getNPCName());

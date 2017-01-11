@@ -21,7 +21,7 @@ public class PickCadavaBerry extends Task<OrionRJ> {
 
     @Override
     public boolean validate() {
-        return !inventory.contains(QuestItem.CADAVA_BERRY.getItemID());
+        return !inventory.contains(QuestItem.CADAVA_BERRY.getItemID()) && configs.get(144) < 50;
     }
 
     @Override

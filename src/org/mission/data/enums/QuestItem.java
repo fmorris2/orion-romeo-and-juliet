@@ -7,13 +7,14 @@ import org.osbot.rs07.api.map.Area;
  */
 public enum QuestItem {
 
-    CADAVA_BERRY("Pick-from", 753, new int[]{23625}, new Area(new int[][]{
+    CADAVA_BERRY("Pick-from", 753, new int[]{23625, 23626}, new Area(new int[][]{
             {3264, 3374},
             {3274, 3374},
             {3273, 3364},
             {3264, 3365}
     })),
-    MESSAGE(null, 755, null, null);
+    MESSAGE(null, 755, null, null),
+    CADAVA_POTION(null, 756, null, null);
 
     private final String ACTION;
     private final int ITEM_ID;

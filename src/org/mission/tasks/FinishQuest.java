@@ -4,7 +4,6 @@ import org.mission.OrionRJ;
 import org.mission.data.enums.QuestNPC;
 import org.osbot.rs07.api.model.NPC;
 import viking.api.Timing;
-import viking.framework.mission.Mission;
 import viking.framework.task.Task;
 
 /**
@@ -26,9 +25,12 @@ public class FinishQuest extends Task<OrionRJ> {
     @Override
     public void execute() {
         romeo = npcs.closest(QuestNPC.ROMEO.getNPCArea(), QuestNPC.ROMEO.getNPCName());
-        if (romeo != null) {
+        if (romeo != null || dialogues.inDialogue()) {
             iFact.dialogue("Talk-to", QuestNPC.ROMEO.getNPCName(), 20).execute();
         } else {
+            if (configs.get(1021) == 192)
+                return;
+
             if (walkUtils.walkToArea(QuestNPC.ROMEO.getNPCArea(), () -> {
                 romeo = npcs.closest(QuestNPC.ROMEO.getNPCArea(), QuestNPC.ROMEO.getNPCName());
                 return romeo != null && romeo.isVisible();
