@@ -3,12 +3,12 @@ package org.mission.data;
 /**
  * Created by Sphiinx on 1/10/2017.
  */
-public class Vars {
+public class RJVars {
 
-    public static Vars vars;
+    public static RJVars vars;
 
-    public static Vars get() {
-        return vars == null ? vars = new Vars() : vars;
+    public static RJVars get() {
+        return vars == null ? vars = new RJVars() : vars;
     }
 
     public static void reset() {
