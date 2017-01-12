@@ -2,6 +2,7 @@ package org.mission;
 
 import org.mission.tasks.*;
 import viking.framework.goal.GoalList;
+import viking.framework.goal.impl.InfiniteGoal;
 import viking.framework.mission.Mission;
 import viking.framework.script.VikingScript;
 import viking.framework.task.TaskManager;
@@ -16,7 +17,7 @@ public class OrionRJ extends Mission {
 
     @Override
     public boolean canEnd() {
-        return false;
+        return configs.get(144) > 100;
     }
 
     @Override
@@ -26,7 +27,7 @@ public class OrionRJ extends Mission {
 
     @Override
     public String getCurrentTaskName() {
-        return null;
+        return TASK_MANAGER.getStatus();
     }
 
     @Override
@@ -36,7 +37,7 @@ public class OrionRJ extends Mission {
 
     @Override
     public GoalList getGoals() {
-        return null;
+        return new GoalList(new InfiniteGoal());
     }
 
     @Override
