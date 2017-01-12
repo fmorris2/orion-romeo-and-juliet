@@ -1,8 +1,14 @@
 package org.mission;
 
-import org.mission.tasks.*;
+import org.mission.tasks.DeliverNote;
+import org.mission.tasks.DeliverPotion;
+import org.mission.tasks.FinishQuest;
+import org.mission.tasks.PickCadavaBerry;
+import org.mission.tasks.StartQuest;
+import org.mission.tasks.TalkToApothecary;
+import org.mission.tasks.TalkToFatherLawrence;
+
 import viking.framework.goal.GoalList;
-import viking.framework.goal.impl.InfiniteGoal;
 import viking.framework.mission.Mission;
 import viking.framework.script.VikingScript;
 import viking.framework.task.TaskManager;
@@ -22,7 +28,7 @@ public class OrionRJ extends Mission {
 
     @Override
     public String getMissionName() {
-        return null;
+        return "Orion R&J";
     }
 
     @Override
@@ -32,12 +38,12 @@ public class OrionRJ extends Mission {
 
     @Override
     public String getEndMessage() {
-        return null;
+        return "Orion R&J has ended!";
     }
 
     @Override
     public GoalList getGoals() {
-        return new GoalList(new InfiniteGoal());
+        return null;
     }
 
     @Override
@@ -51,7 +57,8 @@ public class OrionRJ extends Mission {
         return 150;
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public void onMissionStart() {
         TASK_MANAGER.addTask(new PickCadavaBerry(this), new StartQuest(this), new DeliverNote(this), new TalkToFatherLawrence(this), new TalkToApothecary(this), new DeliverPotion(this), new FinishQuest(this));
     }
