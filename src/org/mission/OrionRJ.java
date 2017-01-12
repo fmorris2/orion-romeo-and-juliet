@@ -22,7 +22,7 @@ public class OrionRJ extends Mission {
 
     @Override
     public String getMissionName() {
-        return null;
+        return "Orion R&J";
     }
 
     @Override
@@ -32,7 +32,7 @@ public class OrionRJ extends Mission {
 
     @Override
     public String getEndMessage() {
-        return null;
+        return "Orion R&J has ended!";
     }
 
     @Override
