@@ -1,12 +1,6 @@
 package org.mission;
 
-import org.mission.tasks.DeliverNote;
-import org.mission.tasks.DeliverPotion;
-import org.mission.tasks.FinishQuest;
-import org.mission.tasks.PickCadavaBerry;
-import org.mission.tasks.StartQuest;
-import org.mission.tasks.TalkToApothecary;
-import org.mission.tasks.TalkToFatherLawrence;
+import org.mission.tasks.*;
 
 import viking.framework.goal.GoalList;
 import viking.framework.mission.Mission;
@@ -60,7 +54,7 @@ public class OrionRJ extends Mission {
     @SuppressWarnings("unchecked")
 	@Override
     public void onMissionStart() {
-        TASK_MANAGER.addTask(new PickCadavaBerry(this), new StartQuest(this), new DeliverNote(this), new TalkToFatherLawrence(this), new TalkToApothecary(this), new DeliverPotion(this), new FinishQuest(this));
+        TASK_MANAGER.addTask(new RJ_DepositItems(this), new PickCadavaBerry(this), new StartQuest(this), new DeliverNote(this), new TalkToFatherLawrence(this), new TalkToApothecary(this), new DeliverPotion(this), new FinishQuest(this));
     }
 
     @Override
