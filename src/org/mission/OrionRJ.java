@@ -56,7 +56,7 @@ public class OrionRJ extends Mission {
     @SuppressWarnings("unchecked")
 	@Override
     public void onMissionStart() {
-        TASK_MANAGER.addTask(new RJ_DepositItems(this), new RecoverNote(this), new PickCadavaBerry(this), new RecoverPotion(this), new StartQuest(this), new DeliverNote(this), new TalkToFatherLawrence(this), new TalkToApothecary(this), new DeliverPotion(this), new FinishQuest(this));
+        TASK_MANAGER.addTask(new RJ_DepositItems(this), new RecoverNote(this), new RecoverPotion(this), new PickCadavaBerry(this), new StartQuest(this), new DeliverNote(this), new TalkToFatherLawrence(this), new TalkToApothecary(this), new DeliverPotion(this), new FinishQuest(this));
     }
 
     @Override

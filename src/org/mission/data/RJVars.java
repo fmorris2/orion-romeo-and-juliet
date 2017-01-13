@@ -16,6 +16,7 @@ public class RJVars {
     }
 
     public boolean has_emptied_inventory;
+    public boolean has_checked_bank_for_potion;
 
 }
 
