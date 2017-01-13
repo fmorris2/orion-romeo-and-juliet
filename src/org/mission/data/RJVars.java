@@ -15,5 +15,7 @@ public class RJVars {
         vars = null;
     }
 
+    public boolean has_emptied_inventory;
+
 }
 
