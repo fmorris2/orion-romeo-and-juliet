@@ -15,7 +15,10 @@ public class RJ_DepositItems extends Task<OrionRJ> {
     }
 
     public boolean validate() {
-        return inventory.getItems().length > 0 && !RJVars.get().has_emptied_inventory;
+        if (inventory.isEmpty())
+            RJVars.get().has_emptied_inventory = true;
+
+        return !inventory.isEmpty() && !RJVars.get().has_emptied_inventory;
     }
 
     public void execute() {

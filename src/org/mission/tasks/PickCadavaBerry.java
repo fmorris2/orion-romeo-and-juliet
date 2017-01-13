@@ -21,13 +21,13 @@ public class PickCadavaBerry extends Task<OrionRJ> {
 
     @Override
     public boolean validate() {
-        return !inventory.contains(QuestObject.CADAVA_BERRY.getItemID()) && configs.get(144) < 50;
+        return !inventory.contains(QuestObject.CADAVA_BERRY.getItemID()) && !inventory.contains(QuestObject.CADAVA_POTION.getItemID());
     }
 
     @Override
     public void execute() {
         cadava_bush = objects.closest(QuestObject.CADAVA_BERRY.getObjectArea(), QuestObject.CADAVA_BERRY.getObjectIDs());
-        if (cadava_bush != null) {
+        if (cadava_bush != null && map.canReach(cadava_bush)) {
             if (myPlayer().isMoving() || myPlayer().getAnimation() != -1)
                 return;
 
@@ -39,7 +39,7 @@ public class PickCadavaBerry extends Task<OrionRJ> {
             if (empty_cadava_bush == null) {
                 if (walkUtils.walkToArea(QuestObject.CADAVA_BERRY.getObjectArea(), () -> {
                     cadava_bush = objects.closest(QuestObject.CADAVA_BERRY.getObjectArea(), QuestObject.CADAVA_BERRY.getObjectIDs());
-                    return cadava_bush != null && cadava_bush.isVisible();
+                    return cadava_bush != null && cadava_bush.isVisible() && map.canReach(cadava_bush);
                 })) {
                     Timing.waitCondition(() -> objects.closest(QuestObject.CADAVA_BERRY.getObjectArea(), QuestObject.CADAVA_BERRY.getObjectIDs()) != null, 150, random(2000, 2500));
                 }
