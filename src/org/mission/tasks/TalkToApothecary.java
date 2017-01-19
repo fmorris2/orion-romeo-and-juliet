@@ -26,12 +26,12 @@ public class TalkToApothecary extends Task<OrionRJ> {
     @Override
     public void execute() {
         apothecary = npcs.closest(QuestNPC.APOTHECARY.getNPCArea(), QuestNPC.APOTHECARY.getNPCName());
-        if (apothecary != null) {
+        if (apothecary != null && map.canReach(apothecary)) {
             iFact.dialogue("Talk-to", QuestNPC.APOTHECARY.getNPCName(), 20, 4).execute();
         } else {
             if (walkUtils.walkToArea(QuestNPC.APOTHECARY.getNPCArea(), () -> {
                 apothecary = npcs.closest(QuestNPC.APOTHECARY.getNPCArea(), QuestNPC.APOTHECARY.getNPCName());
-                return apothecary != null && apothecary.isVisible();
+                return apothecary != null && apothecary.isVisible() && map.canReach(apothecary);
             })) {
                 Timing.waitCondition(() -> npcs.closest(QuestNPC.APOTHECARY.getNPCArea(), QuestNPC.APOTHECARY.getNPCName()) != null, 150, random(2000, 2500));
             }

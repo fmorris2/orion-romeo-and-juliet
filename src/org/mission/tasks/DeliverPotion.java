@@ -25,7 +25,7 @@ public class DeliverPotion extends Task<OrionRJ> {
     @Override
     public void execute() {
         juliet = npcs.closest(QuestNPC.JULIET.getNPCArea().setPlane(1), QuestNPC.JULIET.getNPCName());
-        if (juliet != null || dialogues.inDialogue()) {
+        if ((juliet != null && map.canReach(juliet)) || dialogues.inDialogue()) {
             iFact.dialogue("Talk-to", QuestNPC.JULIET.getNPCName(), 20).execute();
         } else {
             if (configs.get(1021) == 192)
