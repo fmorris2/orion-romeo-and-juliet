@@ -25,7 +25,7 @@ public class PickCadavaBerry extends Task<OrionRJ> {
     @Override
     public void execute() {
     	final Area AREA = QuestObject.CADAVA_BERRY.getObjectArea();
-    	if(AREA.contains(myPosition()))
+    	if(!AREA.contains(myPosition()))
     		walkUtils.walkToArea(AREA);
     	else
     	{
@@ -33,7 +33,6 @@ public class PickCadavaBerry extends Task<OrionRJ> {
     		if(bush != null && iFact.clickObject("Pick-from", bush).execute())
     			Timing.waitCondition(() -> inventory.contains(QuestObject.CADAVA_BERRY.getItemID()), 5000);
     	}
- 
     }
 
     @Override
