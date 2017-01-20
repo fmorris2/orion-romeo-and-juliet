@@ -23,7 +23,6 @@ public class RecoverPotion extends Task<OrionRJ> {
     @Override
     public boolean validate() {
         return configs.get(144) == 50 && !inventory.contains(QuestObject.CADAVA_POTION.getItemID()) && inventory.contains(QuestObject.CADAVA_BERRY.getItemID()) && RJVars.get().has_checked_bank_for_potion || configs.get(144) == 50 && !inventory.contains(QuestObject.CADAVA_POTION.getItemID()) && !RJVars.get().has_checked_bank_for_potion;
-
     }
 
     @Override

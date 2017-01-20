@@ -19,7 +19,7 @@ public class OrionRJ extends Mission {
 
     @Override
     public boolean canEnd() {
-        return configs.get(144) == 100;
+        return questing.closeQuestCompletion() && configs.get(144) == 100;
     }
 
     @Override
