@@ -30,7 +30,7 @@ public class TalkToFatherLawrence extends Task {
         } else {
             if (walkUtils.walkToArea(QuestNPC.FATHER_LAWRENCE.getNPCArea(), () -> {
                 father_lawrence = npcs.closest(QuestNPC.FATHER_LAWRENCE.getNPCArea(), QuestNPC.FATHER_LAWRENCE.getNPCName());
-                return father_lawrence != null && father_lawrence.isVisible() && map.canReach(father_lawrence);
+                return father_lawrence != null && map.canReach(father_lawrence);
             })) {
                 Timing.waitCondition(() -> npcs.closest(QuestNPC.FATHER_LAWRENCE.getNPCArea(), QuestNPC.FATHER_LAWRENCE.getNPCName()) != null, 150, random(2000, 2500));
             }

@@ -31,7 +31,7 @@ public class RecoverNote extends Task<OrionRJ> {
         } else {
             if (walkUtils.walkToArea(QuestNPC.JULIET.getNPCArea().setPlane(1), () -> {
                 juliet = npcs.closest(QuestNPC.JULIET.getNPCArea().setPlane(1), QuestNPC.JULIET.getNPCName());
-                return juliet != null && juliet.isVisible() && map.canReach(juliet);
+                return juliet != null && map.canReach(juliet);
             })) {
                 Timing.waitCondition(() -> npcs.closest(QuestNPC.JULIET.getNPCArea().setPlane(1), QuestNPC.JULIET.getNPCName()) != null, 150, random(2000, 2500));
             }

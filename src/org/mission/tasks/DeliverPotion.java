@@ -33,7 +33,7 @@ public class DeliverPotion extends Task<OrionRJ> {
 
             if (walkUtils.walkToArea(QuestNPC.JULIET.getNPCArea().setPlane(1), () -> {
                 juliet = npcs.closest(QuestNPC.JULIET.getNPCArea().setPlane(1), QuestNPC.JULIET.getNPCName());
-                return juliet != null && juliet.isVisible() && QuestNPC.JULIET.getNPCArea().setPlane(1).contains(myPlayer());
+                return juliet != null && QuestNPC.JULIET.getNPCArea().setPlane(1).contains(myPlayer());
             })) {
                 Timing.waitCondition(() -> npcs.closest(QuestNPC.JULIET.getNPCArea().setPlane(1), QuestNPC.JULIET.getNPCName()) != null, 150, random(2000, 2500));
             }

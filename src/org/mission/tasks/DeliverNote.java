@@ -31,7 +31,7 @@ public class DeliverNote extends Task<OrionRJ> {
         } else {
             if (walkUtils.walkToArea(QuestNPC.ROMEO.getNPCArea(), () -> {
                 romeo = npcs.closest(QuestNPC.ROMEO.getNPCArea(), QuestNPC.ROMEO.getNPCName());
-                return romeo != null && romeo.isVisible() && map.canReach(romeo);
+                return romeo != null && map.canReach(romeo);
             })) {
                 Timing.waitCondition(() -> npcs.closest(QuestNPC.ROMEO.getNPCArea(), QuestNPC.ROMEO.getNPCName()) != null, 150, random(2000, 2500));
             }
